@@ -32,12 +32,15 @@ Avatar = {
   // Get the initials of the user
   getInitials: function (user) {
 
+    var firstName = '';
     var initials = '';
     var name = '';
     var parts = [];
 
-    if (user && user.profile && user.profile.firstName) {
-      initials = user.profile.firstName.charAt(0).toUpperCase();
+    if (user && user.profile && (user.profile.firstName || user.profile.givenName)) {
+      firstName = user.profile.firstName || user.profile.givenName;
+      
+      initials = firstName.charAt(0).toUpperCase();
 
       if (user.profile.lastName) {
         initials += user.profile.lastName.charAt(0).toUpperCase();
