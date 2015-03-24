@@ -19,7 +19,6 @@ getGravatarUrl = function (user, defaultUrl) {
     gravatarDefault = valid ? Avatar.options.gravatarDefault : defaultUrl;
   }
   else {
-    Template.instance().hasImage.set(false);
     return false;
   }
 
