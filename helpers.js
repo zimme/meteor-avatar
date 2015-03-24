@@ -19,7 +19,8 @@ getGravatarUrl = function (user, defaultUrl) {
     gravatarDefault = valid ? Avatar.options.gravatarDefault : defaultUrl;
   }
   else {
-    gravatarDefault = '404';
+    Template.instance().hasImage.set(false);
+    return false;
   }
 
   var options = {
