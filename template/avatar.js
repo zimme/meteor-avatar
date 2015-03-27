@@ -47,11 +47,19 @@ Template.avatar.helpers({
 
 // Use a reactive variable to store image load success/failure
 Template.avatar.created = function () {
-  var user = this.data.user ? Template.currentData().user : Meteor.users.findOne(this.data.userId);
-  image = true;
-  if (getService(user) === 'none' && Avatar.options.fallbackType === 'initials')
-    image = false;
-  this.hasImage = new ReactiveVar(image);
+  var self = this;
+
+  this.hasImage = new ReactiveVar();
+
+  this.autorun(function () {
+    var data = Template.currentData();
+    var user = data.user ? Template.currentData().user : Meteor.users.findOne(data.userId);
+    var image = true;
+    if (getService(user) === "none" && Avatar.options.fallbackType === "initials")
+      image = false;
+
+    self.hasImage.set(image);
+  });
 };
 
 // Determine if image loaded successfully and set hasImage variable
