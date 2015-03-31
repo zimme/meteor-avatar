@@ -24,8 +24,6 @@ Template.avatar.helpers({
     return Template.instance().hasImage.get();
   },
 
-  class: function () { return this.class; },
-
   imageUrl: function () {
     var user = this.user ? this.user : Meteor.users.findOne(this.userId);
     return Avatar.getUrl(user);
