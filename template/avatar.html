@@ -1,9 +1,9 @@
 <template name="avatar">
   <div class="avatar {{size}} {{shape}} {{class}}">
     {{#if hasImage}}
-      <img class="avatar-image" src="{{imageUrl}}" {{dimensions}} alt="avatar" />
+      <img class="avatar-image" src="{{imageUrl}}" {{dimensions}} alt="avatar" title="{{title}}" />
     {{else}}
-      <span class="avatar-initials" style="{{initialsCss}}">{{initialsText}}</span>
+      <span class="avatar-initials" style="{{initialsCss}}" title="{{title}}">{{initialsText}}</span>
     {{/if}}
   </div>
 </template>
